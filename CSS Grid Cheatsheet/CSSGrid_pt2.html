@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>CSS Grid Layout Part 2</title>
+
+      <!-- For demonstration purposes we are using the style tags within the html file for the CSS Grid Layouts. We should always use the External CSS method (refer to the CSS-Introduction repository). -->
+      <style>
+         /* Global Style */
+         strong{
+            color: red;
+         }
+
+         a{
+            color: purple;
+            font-size: 20px;
+         }
+
+         .wrapper-format > div{
+            background:#eee;
+            padding:1em;
+         }
+         .wrapper-format > div:nth-child(odd){
+            background:#ddd;
+         }
+
+         .nested-format > div{
+            border:#333 1px solid;
+            padding:1em;
+         }
+
+         /* CSS Grid Layout */
+         .wrapper{
+            display:grid;
+            /* grid-template-columns:1fr 1fr 1fr;*/
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap:1em;
+            /* grid-auto-rows:100px; */
+            grid-auto-rows: minmax(100px, auto);
+          }
+
+         .nested{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 70px;
+            grid-gap:1em;
+         }
+      </style>
+   </head>
+
+   <body>
+      <head><h1>Lesson 2</h1></head>
+      <p>There is a new unit introduced by CSS-Grid called fractionals (<strong>fr</strong>) which is an alternative to percentage.</p>
+      <p>It is recommended to use fractionals over percentages for the CSS grid units because when you use percentages you will end up running into issues with margins and paddings.</p>
+      <p>We can use the <strong>repeat();</strong> function to shorten our syntax codes for example: <br> <strong>grid-template-columns: 1fr 1fr 1fr;</strong> can also be written as <strong>grid-template-column: repeat(3, 1fr);</strong>. The repeat function takes in two parameters, the first is the number of repeat and the second is the unit measeurement. <br> The shorthand syntax of <strong>grid-template-column: repeat(2, 1fr 2 fr);</strong> is the same as writing the longhand syntax of <strong>grid-template-columns: 1fr 2fr 1fr 2fr;</strong> (the column grid 1fr 2fr is repeated twice to make a 4 column grid).</p>
+      <p>To fix the height of all column rows we would use <strong>grid-auto-rows:</strong> property. If the content of a div is more than the row height then all the contents of the div will fall outside the row height.</p>
+      <p>To make the row height flexible we can use the function <strong>minmax()</strong>. The two parameters for the <strong>minmax()</strong> function are the minimum height (default) and the maximum height. <br> For example: minmax(100px, auto) would format the CSS grid to have a default grid height of 100px and a maximum height of auto. This would therefore allow the grid to be more flexible and increase its height for the particular row should a div element content go beyond the 100px default height.</p> <br>
+
+      <p>We can nest grids by creating another wrapper/container class within the first wrapper/container div class. We would then add the CSS Grid layout for the new class i.e. in the example below we have two <strong>display:grid</strong> for the class of .wrapper and .nested.</p>
+
+      <br>
+      <h2>Wrapper Example 1 - Fraction Unit and Nested Grids</h2>
+      <div class="wrapper wrapper-format">
+         <div>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+         </div>
+         <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio doloremque, quas pariatur nam rem, qui sapiente voluptatum dolorum nihil quod magni dignissimos veritatis? Ipsa dolor ipsum totam tempore neque! Expedita magnam, ipsam earum nesciunt amet aliquam blanditiis a voluptatum perferendis!
+         </div>
+
+         <div class="nested nested-format">
+            <div>Sub-Grid 1</div>
+            <div>Sub-Grid 2</div>
+            <div>Sub-Grid 3</div>
+            <div>Sub-Grid 4</div>
+            <div>Sub-Grid 5</div>
+            <div>Sub-Grid 6</div>
+            <div>Sub-Grid 7</div>
+            <div>Sub-Grid 8</div>
+            <div>Sub-Grid 9</div>
+         </div>
+      
+         <div>
+            <a href="CSSGrid_pt1.html">Return to Part 1 of the CSS Grid Tutorial.</a>
+         </div>
+         <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+         </div>
+         <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+         </div>
+         <div>
+            <a href="CSSGrid_pt3.html">Go to Part 3 of the CSS Grid Tutorial.</a>
+         </div>
+      </div>
+   </body>
+</html>

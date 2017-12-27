@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>CSS Grid Layout Part 1</title>
+
+      <!-- For demonstration purposes we are using the style tags within the html file for the CSS Grid Layouts. We should always use the External CSS method (refer to the CSS-Introduction repository). -->
+      <style>
+         /* Global Style */
+         strong{
+            color: red;
+         }
+
+         a{
+            color: purple;
+            font-size: 20px;
+         }
+
+         .wrapper-format > div{
+            background:#eee;
+            padding:1em;
+         }
+         .wrapper-format > div:nth-child(odd){
+            background:#ddd;
+         }
+
+          /* CSS Grid Layout */
+         .wrapper1{
+            display:grid;
+            grid-template-columns: 70% 30%;
+            /*
+            grid-column-gap:1em;
+            grid-row-gap:1em;
+            */
+            grid-gap:1em;
+         }
+
+         .wrapper2{
+            display:grid;
+            grid-template-columns: 40% 30% 30%;
+         }
+      </style>
+   </head>
+
+   <body>
+      <head><h1>Lesson 1</h1></head>
+      <p>Create a div class wrapper/container (or whatever you would like to call it) - this will act as the wrapper/container for the CSS grid. Elements within the container will have the CSS Grid Layout</p>
+      <p>We have added a wrapper-format to visually represent the Grid layout of the content below.</p>
+      <p>To add the CSS Grid layout to the wrapper class we must add in the CSS <strong>display:grid;</strong> as you would do in flexbox by adding display:flex.</p>
+      <p>Next we would need to define the width of our grid columns using the <strong>grid-template-columns:</strong> property. In the example we gave a 70% 30% grid layout for the wrapper class. Therefore, no matter how many div elements we have within the wrapper class they will all continue to follow the 70:30 column grid (as seen below). We do not need to define the rows unlike bootstrap (another CSS framework created by the Twitter Team).</p>
+      <p>To add spacing between the columns we can add the <strong>grid-column-gap:</strong> property. To add spacing between the rows we can add the <strong>grid-row-gap:</strong> property. To add spacing between both the columns and rows we can add the <strong>grid-gap:</strong> property. This saves us from manually adding a margins, also note that you can use any other units such as px, cm, % etc.</p>
+
+      <h2>Wrapper Example 1 - 70%:30% Column Grid</h2>
+         <div class="wrapper1 wrapper-format">
+               <div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, deleniti molestiae. Optio vero nobis reprehenderit voluptatibus molestiae voluptatem, eius saepe expedita? Ea non adipisci ratione quam doloribus aliquam quidem velit. Magnam harum vitae, sequi beatae veniam omnis assumenda tempora et dolorem sint eum, ullam incidunt. Reprehenderit voluptates amet exercitationem ex.
+               </div>
+               <div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima praesentium iusto beatae, cumque quidem repellendus at ad. Accusantium, eveniet similique enim iste neque quod illo nemo inventore nostrum fugit perspiciatis assumenda tenetur harum suscipit saepe deleniti animi id ad sit.
+               </div>
+               <div>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sunt excepturi doloribus quisquam cupiditate adipisci iure error a, corrupti praesentium non provident. Fuga a delectus ex deserunt quos fugit ipsum voluptatum magnam minima quaerat repellat suscipit veritatis dolorem dolorum ullam officiis hic veniam, blanditiis, molestiae labore? Cumque maxime pariatur, facere distinctio iure quibusdam? Distinctio optio rem nesciunt accusantium ipsa quo.
+               </div>
+               <div>
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde tenetur vero incidunt temporibus facere impedit voluptas architecto, sint soluta atque, expedita alias officiis sequi inventore aperiam sed explicabo provident nostrum.
+               </div>
+            </div>
+            <br>
+            <br>
+            <h2>Wrapper Example 2 - 40%:30%:30% Column Grid</h2>
+            <div class="wrapper2 wrapper-format">
+                  <div>
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, deleniti molestiae. Optio vero nobis reprehenderit voluptatibus molestiae voluptatem, eius saepe expedita? Ea non adipisci ratione quam doloribus aliquam quidem velit. Magnam harum vitae, sequi beatae veniam omnis assumenda tempora et dolorem sint eum, ullam incidunt. Reprehenderit voluptates amet exercitationem ex.
+                  </div>
+                  <div>
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima praesentium iusto beatae, cumque quidem repellendus at ad. Accusantium, eveniet similique enim iste neque quod illo nemo inventore nostrum fugit perspiciatis assumenda tenetur harum suscipit saepe deleniti animi id ad sit.
+                  </div>
+                  <div>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sunt excepturi doloribus quisquam cupiditate adipisci iure error a, corrupti praesentium non provident. Fuga a delectus ex deserunt quos fugit ipsum voluptatum magnam minima quaerat repellat suscipit veritatis dolorem dolorum ullam officiis hic veniam, blanditiis, molestiae labore? Cumque maxime pariatur, facere distinctio iure quibusdam? Distinctio optio rem nesciunt accusantium ipsa quo.
+                  </div>
+                  <div>
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde tenetur vero incidunt temporibus facere impedit voluptas architecto, sint soluta atque, expedita alias officiis sequi inventore aperiam sed explicabo provident nostrum.
+                  </div>
+                  <div>
+                     <a href="CSSGrid_pt2.html">Go to Part 2 of the CSS Grid Tutorial.</a>
+                  </div>
+               </div>  
+   </body>
+   </html>

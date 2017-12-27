@@ -1,0 +1,84 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+/* We can use grid-area to make the website flexibile and reposition elements based on the @media criteria. */
+
+.site {
+  display: grid;
+  grid-template-columns: 15px 1fr 1fr 15px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  ". index-title index-title ." /*the . relates to white-space in the column i.e. first and last column */
+  ". index-masthead . ."
+  ". index-sidebar index-content ." /* we repeat the grid-area name to indicate the space the class should take within the grid - in this example the index-sidebar content should take up grid-column 2 and 3. */
+  ". index-sidebar index-content ."
+  ". index-footer index-footer .";
+}
+
+.page-title {
+  grid-area: index-title; /* we require the grid-area property to reference above */
+}
+
+.masthead {
+  grid-area: index-masthead;
+}
+
+.main-content {
+  grid-area: index-content;
+}
+
+.sidebar {
+  grid-area: index-sidebar;
+}
+
+.footer {
+  grid-area: index-footer;
+}
+
+.green {
+  background-color: green;
+  width: 100%;
+  height: 100%;
+}
+
+.red {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+}
+
+.blue {
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+}
+
+.purple {
+  background-color: purple;
+  width: 100%;
+  height: 100%;
+}
+
+.yellow {
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+}
+
+/* When the website is above the minimum width the grid layout will change accordingly. We would want the mobile first grid layout to be the default CSS Grid Layout. */ 
+@media screen and (min-width: 736px) {
+
+  .site {
+    display: grid;
+    grid-template-columns: 1fr 500px 500px 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    ". index-title index-title ."
+    ". index-masthead index-masthead ."
+    ". index-sidebar index-content ."
+    ". index-footer index-footer .";
+    grid-gap: 10px;
+  }
+
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>CSS Grid Layout Part 3</title>
+
+      <!-- For demonstration purposes we are using the style tags within the html file for the CSS Grid Layouts. We should always use the External CSS method (refer to the CSS-Introduction repository). -->
+      <style>
+         /* Global Style */
+         strong{
+            color: red;
+         }
+
+         a{
+            color: purple;
+            font-size: 20px;
+         }
+
+         .wrapper-format > div{
+            background:#eee;
+            padding:1em;
+         }
+         .wrapper-format > div:nth-child(odd){
+            background:#ddd;
+         }
+
+          /* CSS Grid Layout */       
+         .wrapper{
+           grid-template-columns:1fr 2fr 1fr;
+           display:grid;
+           grid-auto-rows:minmax(100px, auto);
+           grid-gap:1em;
+           justify-items:stretch;
+           align-items:stretch;
+         }
+
+         .box1{
+           /*align-self: start;*/
+           grid-column:1/3;
+           grid-row:1/3;
+         }
+
+         .box2{
+           /*align-self: end;*/
+           grid-column:3;
+           grid-row:1/3;
+         }
+
+         .box3{
+           /*justify-self: end;*/
+           grid-column:2/4;
+           grid-row:3;
+         }
+
+         .box4{
+           grid-column:1;
+           grid-row:2/4;
+           border:1px solid #333;
+         }
+      </style>
+   </head>
+
+   <body>
+      <head><h1>Lesson 3</h1></head>
+      <p>We can justify column grids left, center and right by using the <strong>justify-items:</strong> property. <br> <strong>justify-items: start;</strong> will justify the content to the left, <strong>justify-items: center;</strong> will justify the content to the center and <strong>justify-items: end;</strong> will justify the content to the right. <strong>justify-items: stretch;</strong> is the default.</p>
+      <p>We can also align column grids top, center and bottom by using the <strong>align-items:</strong> property. <br> <strong>align-items: start;</strong> will align the content to the top, <strong>align-items: center;</strong> will align the content to the center and <strong>align-items: end;</strong> will align the content to the bottom. <strong>align-items: stretch;</strong> is the default.</p>
+      <p>We can also use <strong>align-self:</strong> and/or <strong>justify-self:</strong> (the same as above) but this will allow each div element to have its own independant justify/align property whereas the above would apply to all elements.</p>
+      <br>
+      <p>The <strong>grid-column:</strong> and <strong>grid-row:</strong> properties allows elements to span across columns and rows which allows CSS Grid to be two-dimentional. This means elements can overlap each other or certain elements to take up a certain amount of column/row space on a webpage. The numbers in the parameters relate to the line number of the grid-column/grid-row. In the example below: <br> <strong>grid-column:1/3;</strong> for .box1 div class will expand its content in 2 columns and <strong>grid-row:1/3;</strong> and two rows. <br>
+      A three column grid will have 4 lines to make up is columns. Line 1 and 2 will create the first column, line 2 and 3 will create the second column and linke 3 and 4 will create the third column (same ruling applies to the grid rows lines). Therefore when adding the parameters to the <strong>grid-column:</strong> property, we are referencing the grid lines for the element column.
+      </p>
+      <p>With grid-columns we have the flexibility/power to rearrange items and further more the ability to overlap items (which is not possible in flexbox).</p>
+      <p>We can create powerful web-first applications and rearrange items/elements when the webpage increases in size to accomodate different screensize - <a href="CSSGrid-pt4.html">view the CSS-Grid-Example demonstrating all that we have learnt.</a></p>
+
+      <br>
+      <h2>Wrapper Example 1 - Align, Justify & Grid-Columns/Grid-Rows </h2>
+      <div class="wrapper wrapper-format">
+            <div class="box box1">Box 1</div>
+            <div class="box box2">Box 2</div>
+            <div class="box box3">Box 3</div>
+            <div class="box box4">
+               <div>Box 4</div>
+               <br>
+               <a href="CSSGrid_pt2.html">Return to Part 2 of the CSS Grid Tutorial.</a>
+            </div>
+      </div>
+   </body>
+</html>
